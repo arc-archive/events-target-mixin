@@ -1,3 +1,2 @@
-# `<events-target-behavior>`
+[![Build Status](https://travis-ci.org/advanced-rest-client/events-target-behavior.svg?branch=stage)](https://travis-ci.org/advanced-rest-client/events-target-behavior)  
 
-Behavior that support event targets retargeting so the element listens on a set node instead of default one
