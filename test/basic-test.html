@@ -1,0 +1,86 @@
+<!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <script src="../../iron-test-helpers/test-helpers.js"></script>
+    <script src="../../iron-test-helpers/mock-interactions.js"></script>
+    <link rel="import" href="test-element.html">
+  </head>
+  <body>
+
+    <test-fixture id="default">
+      <template>
+        <test-element></test-element>
+      </template>
+    </test-fixture>
+
+    <script>
+    /* global fixture, assert */
+    function fire(type, bubbles, node) {
+      var event = new CustomEvent(type, {
+        cancelable: true,
+        bubbles: bubbles,
+        composed: true
+      });
+      (node || document.body).dispatchEvent(event);
+      return event;
+    }
+
+    suite('Listens on default', function() {
+      var element;
+      setup(function() {
+        element = fixture('default');
+      });
+
+      test('Receives an event from bubbling', function() {
+        fire('test-event', true);
+        assert.isTrue(element.calledOnce);
+      });
+
+      test('Do not receives an event from parent', function() {
+        fire('test-event', false, document.body.parentElement);
+        assert.isFalse(element.calledOnce);
+      });
+    });
+
+    suite('Changes event listener', function() {
+      var element;
+      setup(function() {
+        element = fixture('default');
+      });
+
+      test('Receives on body', function() {
+        element.eventsTarget = document.body;
+        fire('test-event', false, document.body);
+        assert.isTrue(element.calledOnce);
+      });
+
+      test('Do not receives on parent', function() {
+        element.eventsTarget = window;
+        fire('test-event', false, document.body);
+        assert.isFalse(element.called);
+      });
+
+      test('Reseives on self', function() {
+        element.eventsTarget = element;
+        fire('test-event', false, element);
+        assert.isTrue(element.calledOnce);
+      });
+    });
+    </script>
+
+  </body>
+</html>
