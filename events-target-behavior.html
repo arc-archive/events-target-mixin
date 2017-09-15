@@ -53,7 +53,7 @@ window.ArcBehaviors = window.ArcBehaviors || {};
  * @polymerBehavior ArcBehaviors.EventsTargetBehavior
  * @group Logic Elements
  */
-var EventsTargetBehaviorImpl = {
+window.ArcBehaviors.EventsTargetBehavior = {
 
   properties: {
     /**
@@ -101,9 +101,5 @@ var EventsTargetBehaviorImpl = {
     console.warn('_detachListeners not found in the element methods');
   }
 };
-
-window.ArcBehaviors.EventsTargetBehavior = [
-  EventsTargetBehaviorImpl
-];
 })();
 </script>
