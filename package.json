@@ -1,6 +1,6 @@
 {
   "name": "events-target-behavior",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "Apache-2.0 OR CC-BY-4.0",
   "description": "Behavior that support event targets retargeting so the element listens on a set node instead of default one",
   "devDependencies": {
