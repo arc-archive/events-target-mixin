@@ -11,19 +11,21 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 -->
-<link rel="import" href="../polymer/polymer.html">
-
+<link rel="import" href="../polymer/lib/utils/mixin.html">
 <script>
-(function() {
 'use strict';
-
-window.ArcBehaviors = window.ArcBehaviors || {};
+if (!window.ArcBehaviors) {
+  /**
+   * @namespace ArcBehaviors
+   */
+  window.ArcBehaviors = {};
+}
 /**
- * A `ArcBehaviors.EventsTargetBehavior` is a base behavior that allows setting
+ * `ArcBehaviors.EventsTargetBehavior` is a behavior mixin that allows setting
  * up event listeners on a default or set node.
  *
  * By default the element listens on the `window` element for events. By setting
- * `eventsTarget` property of this element it removes all previously set
+ * `eventsTarget` property on this element it removes all previously set
  * listeners and adds the same listeners to the node.
  * It also restores default state when the `eventsTarget` is removed.
  *
@@ -32,74 +34,85 @@ window.ArcBehaviors = window.ArcBehaviors || {};
  * called with event target argument when it's required to either set or remove
  * listeners.
  *
- * ### Example (Polymer 1.x)
+ * ### Example (Polymer 2.x)
  *
  * ```javascript
- * Polymer({
- *   is: 'my-element',
- *   behaviors: [ArcBehaviors.EventsTargetBehavior],
+ * class EventableElement extends ArcBehaviors.EventsTargetBehavior(Polymer.Element) {
+ *  static get is() {
+ *    return 'eventable-element';
+ *  }
  *   _attachListeners: function(node) {
- *     this.listen(node, 'event-type', 'handlerName');
- *   },
- *   _detachListeners: function(node) {
- *     this.unlisten(node, 'event-type', 'handlerName');
- *   }
- * });
+ *    mode.addEventListener('event', this._callback);
+ *  }
+ *
+ *  _detachListeners: function(node) {
+ *    mode.removeEventListener('event', this._callback);
+ *  }
+ * }
  * ```
  *
- * The behavior handles attached / detached state and calls the functions with
- * required parameters.
+ * The mixin handles connectedCallback / disconnectedCallback and calls the
+ * functions with required parameters.
  *
- * @polymerBehavior ArcBehaviors.EventsTargetBehavior
- * @group Logic Elements
+ * @polymer
+ * @mixinFunction
+ * @memberof ArcBehaviors
  */
-window.ArcBehaviors.EventsTargetBehavior = {
-
-  properties: {
-    /**
-     * Events handlers target. By default the element listens on
-     * `window` object. If set, all events listeners will be attached to this
-     * object instead of `window`.
-     */
-    eventsTarget: {
-      type: Object,
-      observer: '_eventsTargetChanged'
-    },
-    // An event target used to attach listeners.
-    _oldEventsTarget: Object
-  },
-
-  attached: function() {
-    this._eventsTargetChanged(this.eventsTarget);
-  },
-
-  detached: function() {
-    if (this._oldEventsTarget) {
-      this._detachListeners(this._oldEventsTarget);
-    }
-  },
+ArcBehaviors.EventsTargetBehavior = Polymer.dedupingMixin((base) => {
   /**
-   * Removes old handlers (if any) and attaches listeners on new event
-   * event target.
-   *
-   * @param {?Node} eventsTarget Event target to set handlers on. If not set it
-   * will set handlers on the `window` object.
+   * @polymer
+   * @mixinClass
    */
-  _eventsTargetChanged: function(eventsTarget) {
-    if (this._oldEventsTarget) {
-      this._detachListeners(this._oldEventsTarget);
+  class ETBmixin extends base {
+    static get properties() {
+      return {
+        /**
+         * Events handlers target. By default the element listens on
+         * `window` object. If set, all events listeners will be attached to this
+         * object instead of `window`.
+         */
+        eventsTarget: {
+          type: Object,
+          observer: '_eventsTargetChanged'
+        },
+        // An event target used to attach listeners.
+        _oldEventsTarget: Object
+      };
     }
-    this._oldEventsTarget = eventsTarget || window;
-    this._attachListeners(this._oldEventsTarget);
-  },
-  // To be implement by the element to set event listeners on the target
-  _attachListeners: function() {
-    console.warn('_attachListeners not found in the element methods');
-  },
-  // To be implement by the element to remove event listeners from the target
-  _detachListeners: function() {
-    console.warn('_detachListeners not found in the element methods');
+    connectedCallback() {
+       super.connectedCallback();
+       this._eventsTargetChanged(this.eventsTarget);
+     }
+
+     disconnectedCallback() {
+       super.disconnectedCallback();
+       if (this._oldEventsTarget) {
+         this._detachListeners(this._oldEventsTarget);
+       }
+     }
+    /**
+     * Removes old handlers (if any) and attaches listeners on new event
+     * event target.
+     *
+     * @param {?Node} eventsTarget Event target to set handlers on. If not set it
+     * will set handlers on the `window` object.
+     */
+    _eventsTargetChanged(eventsTarget) {
+      if (this._oldEventsTarget) {
+        this._detachListeners(this._oldEventsTarget);
+      }
+      this._oldEventsTarget = eventsTarget || window;
+      this._attachListeners(this._oldEventsTarget);
+    }
+    // To be implement by the element to set event listeners on the target
+    _attachListeners() {
+      console.warn('_attachListeners not found in the element methods');
+    }
+    // To be implement by the element to remove event listeners from the target
+    _detachListeners() {
+      console.warn('_detachListeners not found in the element methods');
+    }
   }
-};
-})();
+  return ETBmixin;
+});
 </script>
