@@ -11,7 +11,7 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 -->
-<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../polymer/polymer-element.html">
 <link rel="import" href="../events-target-behavior.html">
 <!--
 Example implementation.
@@ -25,36 +25,43 @@ Example implementation.
     </style>
   </template>
   <script>
-    Polymer({
-      is: 'test-element',
-      behaviors: [ArcBehaviors.EventsTargetBehavior],
-
-      properties: {
+  /* global ArcBehaviors */
+  class EventableElement extends ArcBehaviors.EventsTargetBehavior(Polymer.Element) {
+    static get is() { return 'eventable-element'; }
+    static get properties() {
+      return {
         _calledCount: {
           type: Number,
           value: 0
         }
-      },
+      };
+    }
 
-      get called() {
-        return this._calledCount > 0;
-      },
+    constructor() {
+      super();
+      this._testEventHandler = this._testEventHandler.bind(this);
+    }
 
-      get calledOnce() {
-        return this._calledCount === 1;
-      },
+    get called() {
+      return this._calledCount > 0;
+    }
 
-      _attachListeners: function(node) {
-        this.listen(node, 'test-event', '_testEventHandler');
-      },
+    get calledOnce() {
+      return this._calledCount === 1;
+    }
 
-      _detachListeners: function(node) {
-        this.unlisten(node, 'test-event', '_testEventHandler');
-      },
+    _attachListeners(node) {
+      node.addEventListener('test-event', this._testEventHandler);
+    }
 
-      _testEventHandler: function() {
-        this._calledCount++;
-      }
-    });
+    _detachListeners(node) {
+      node.removeEventListener('test-event', this._testEventHandler);
+    }
+
+    _testEventHandler() {
+      this._calledCount++;
+    }
+  }
+  window.customElements.define(EventableElement.is, EventableElement);
   </script>
 </dom-module>
