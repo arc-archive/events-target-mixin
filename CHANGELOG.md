@@ -1,3 +1,9 @@
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/advanced-rest-client/events-target-behavior/compare/2.0.0...2.0.2) (2018-05-18)
+
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/advanced-rest-client/events-target-behavior/compare/0.1.2...0.1.3) (2017-09-15)
 
