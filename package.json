@@ -1,21 +1,19 @@
 {
-  "name": "events-target-behavior",
-  "version": "2.0.1",
+  "name": "@advanced-rest-client/events-target-behavior",
+  "version": "2.0.2",
   "license": "Apache-2.0",
   "description": "Behavior that support event targets retargeting so the element listens on a set node instead of default one",
   "devDependencies": {
-    "@polymer/gen-typescript-declarations": "^1.1.1",
-    "bower": "^1.8.0"
+    "@polymer/gen-typescript-declarations": "^1.1.1"
   },
   "private": false,
   "main": "events-target-behavior.html",
   "author": "The Advanced REST client authors <arc@mulesoft.com>",
   "scripts": {
-    "serve": "node_modules/.bin/polymer serve",
-    "lint": "node_modules/.bin/polymer lint events-target-behavior.html --rules polymer-1",
-    "test-sauce": "node_modules/.bin/polymer test --plugin sauce --job-name \"events-target-behavior:local-test\"",
-    "test": "node_modules/.bin/polymer test --plugin local",
-    "update-types": "bower install && gen-typescript-declarations --deleteExisting --outDir ."
+    "lint": "polymer lint events-target-behavior.html",
+    "test-sauce": "polymer test --plugin sauce --job-name \"events-target-behavior:local-test\"",
+    "test": "polymer test --plugin local",
+    "update-types": "gen-typescript-declarations --deleteExisting --outDir ."
   },
   "repository": {
     "type": "git",
