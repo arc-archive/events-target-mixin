@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "description": "Behavior that support event targets retargeting so the element listens on a set node instead of default one",
   "devDependencies": {
-    "@polymer/gen-typescript-declarations": "^1.1.1"
+    "@polymer/gen-typescript-declarations": "^1.6.1"
   },
   "private": false,
   "main": "events-target-behavior.html",
