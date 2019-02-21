@@ -1,25 +1,39 @@
 {
-  "name": "@advanced-rest-client/events-target-behavior",
-  "version": "2.0.2",
-  "license": "Apache-2.0",
-  "description": "Behavior that support event targets retargeting so the element listens on a set node instead of default one",
-  "devDependencies": {
-    "@polymer/gen-typescript-declarations": "^1.6.1"
+  "description": "Mixin that support event targets retargeting so the element listens on a set node instead of default one",
+  "keywords": [
+    "web-components",
+    "polymer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/advanced-rest-client/events-target-mixin.git"
   },
-  "private": false,
-  "main": "events-target-behavior.html",
+  "name": "@advanced-rest-client/events-target-mixin",
+  "version": "3.0.0-preview.1",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@polymer/gen-typescript-declarations": "^1.6.1",
+    "@polymer/iron-demo-helpers": "^3.0.0",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "@polymer/iron-component-page": "^4.0.0",
+    "@polymer/test-fixture": "^4.0.2",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.3",
+    "wct-mocha": "^1.0.0"
+  },
+  "main": "events-target-mixin.js",
   "author": "The Advanced REST client authors <arc@mulesoft.com>",
   "scripts": {
-    "lint": "polymer lint events-target-behavior.html",
-    "test-sauce": "polymer test --plugin sauce --job-name \"events-target-behavior:local-test\"",
+    "lint": "polymer lint events-target-mixin.html",
+    "test-sauce": "polymer test --plugin sauce --job-name \"events-target-mixin:local-test\"",
     "test": "polymer test --plugin local",
     "update-types": "gen-typescript-declarations --deleteExisting --outDir ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/advanced-rest-client/events-target-behavior.git"
-  },
   "bugs": {
-    "url": "https://github.com/advanced-rest-client/events-target-behavior/issues"
+    "url": "https://github.com/advanced-rest-client/events-target-mixin/issues"
+  },
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
   }
 }

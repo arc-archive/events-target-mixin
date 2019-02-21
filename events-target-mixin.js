@@ -1,4 +1,4 @@
-<!--
+/**
 @license
 Copyright 2017 The Advanced REST client authors <arc@mulesoft.com>
 Licensed under the Apache License, Version 2.0 (the "License"); you may not
@@ -10,16 +10,8 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
--->
-<link rel="import" href="../polymer/lib/utils/mixin.html">
-<script>
-'use strict';
-if (!window.ArcBehaviors) {
-  /**
-   * @namespace ArcBehaviors
-   */
-  window.ArcBehaviors = {};
-}
+*/
+import {dedupingMixin} from '@polymer/polymer/lib/utils/mixin.js';
 /**
  * `ArcBehaviors.EventsTargetBehavior` is a behavior mixin that allows setting
  * up event listeners on a default or set node.
@@ -56,9 +48,8 @@ if (!window.ArcBehaviors) {
  *
  * @polymer
  * @mixinFunction
- * @memberof ArcBehaviors
  */
-ArcBehaviors.EventsTargetBehavior = Polymer.dedupingMixin((base) => {
+export const EventsTargetMixin = dedupingMixin((base) => {
   /**
    * @polymer
    * @mixinClass
@@ -105,14 +96,9 @@ ArcBehaviors.EventsTargetBehavior = Polymer.dedupingMixin((base) => {
       this._attachListeners(this._oldEventsTarget);
     }
     // To be implement by the element to set event listeners on the target
-    _attachListeners() {
-      console.warn('_attachListeners not found in the element methods');
-    }
+    _attachListeners() {}
     // To be implement by the element to remove event listeners from the target
-    _detachListeners() {
-      console.warn('_detachListeners not found in the element methods');
-    }
+    _detachListeners() {}
   }
   return ETBmixin;
 });
-</script>
