@@ -14,9 +14,8 @@ the License.
 /*
 Example implementation.
 */
-import {PolymerElement} from '@polymer/polymer/polymer-element.js';
+import {PolymerElement} from '../../../@polymer/polymer/polymer-element.js';
 import {EventsTargetMixin} from '../events-target-mixin.js';
-import {html} from '@polymer/polymer/lib/utils/html-tag.js';
 class EventableElement extends EventsTargetMixin(PolymerElement) {
   static get is() {
     return 'eventable-element';
@@ -28,13 +27,6 @@ class EventableElement extends EventsTargetMixin(PolymerElement) {
         value: 0
       }
     };
-  }
-  static get template() {
-    return html`<style>
-    :host {
-      display: block;
-    }
-    </style>`;
   }
 
   constructor() {
