@@ -71,16 +71,20 @@ export const EventsTargetMixin = dedupingMixin((base) => {
       };
     }
     connectedCallback() {
-       super.connectedCallback();
-       this._eventsTargetChanged(this.eventsTarget);
-     }
+      if (super.connectedCallback) {
+        super.connectedCallback();
+      }
+      this._eventsTargetChanged(this.eventsTarget);
+    }
 
-     disconnectedCallback() {
-       super.disconnectedCallback();
-       if (this._oldEventsTarget) {
-         this._detachListeners(this._oldEventsTarget);
-       }
-     }
+    disconnectedCallback() {
+      if (super.disconnectedCallback) {
+        super.disconnectedCallback();
+      }
+      if (this._oldEventsTarget) {
+        this._detachListeners(this._oldEventsTarget);
+      }
+    }
     /**
      * Removes old handlers (if any) and attaches listeners on new event
      * event target.
