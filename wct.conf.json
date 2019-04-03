@@ -54,7 +54,6 @@
       ]
     },
     "@advanced-rest-client/wct-istanbub": {
-      "disabled": true,
       "dir": "./coverage",
       "reporters": [
         "text-summary",
@@ -71,8 +70,8 @@
       "thresholds": {
         "global": {
           "statements": 80,
-          "branches": 80,
-          "functions": 90,
+          "branches": 70,
+          "functions": 71,
           "lines": 80
         }
       }
