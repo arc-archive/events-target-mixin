@@ -9,7 +9,7 @@
     "url": "git://github.com/advanced-rest-client/events-target-mixin.git"
   },
   "name": "@advanced-rest-client/events-target-mixin",
-  "version": "3.0.0-preview.2",
+  "version": "3.0.0-preview.3",
   "license": "Apache-2.0",
   "devDependencies": {
     "@polymer/gen-typescript-declarations": "^1.6.1",
