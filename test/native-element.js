@@ -14,16 +14,9 @@ the License.
 /*
 Example implementation.
 */
-import { LitElement } from 'lit-element';
 import { EventsTargetMixin } from '../events-target-mixin.js';
 
-class EventableElement extends EventsTargetMixin(LitElement) {
-  static get properties() {
-    return {
-      _calledCount: { type: Number }
-    };
-  }
-
+class EventableNativeElement extends EventsTargetMixin(HTMLElement) {
   constructor() {
     super();
     this._calledCount = 0;
@@ -50,4 +43,4 @@ class EventableElement extends EventsTargetMixin(LitElement) {
     this._calledCount++;
   }
 }
-window.customElements.define('eventable-element', EventableElement);
+window.customElements.define('eventable-native-element', EventableNativeElement);

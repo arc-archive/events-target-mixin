@@ -12,28 +12,24 @@
   "version": "3.0.0-preview.3",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@advanced-rest-client/testing-karma-sl": "^1.0.2",
+    "@open-wc/testing": "^0.11.1",
+    "@open-wc/testing-karma": "^2.0.6",
     "@polymer/gen-typescript-declarations": "^1.6.1",
-    "@polymer/iron-component-page": "^4.0.0",
-    "@polymer/iron-demo-helpers": "^3.1.0",
-    "@polymer/test-fixture": "^4.0.2",
-    "@webcomponents/webcomponentsjs": "^2.0.0",
-    "chai": "^4.2.0",
-    "mocha": "^5.2.0",
-    "sinon": "^7.3.1",
-    "wct-mocha": "^1.0.0"
+    "lit-element": "^2.2.0"
   },
   "main": "events-target-mixin.js",
   "author": "The Advanced REST client authors <arc@mulesoft.com>",
   "scripts": {
-    "lint": "polymer lint events-target-mixin.html",
-    "test-sauce": "polymer test --plugin sauce --job-name \"events-target-mixin:local-test\"",
-    "test": "polymer test --plugin local",
+    "test": "karma start --coverage",
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test:legacy": "karma start --legacy --coverage",
+    "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
+    "test:sl": "karma start karma.sl.config.js --legacy --coverage",
     "update-types": "gen-typescript-declarations --deleteExisting --outDir ."
   },
   "bugs": {
     "url": "https://github.com/advanced-rest-client/events-target-mixin/issues"
   },
-  "dependencies": {
-    "@polymer/polymer": "^3.2.0"
-  }
+  "dependencies": {}
 }
