@@ -1,6 +1,8 @@
 import { fixture, assert } from '@open-wc/testing';
+import * as sinon from 'sinon';
 import './test-element.js';
 import './native-element.js';
+import { EventableObject } from './eventable-object.js';
 
 describe('EventsTargetMixin', function() {
   async function basicFixture() {
@@ -61,6 +63,13 @@ describe('EventsTargetMixin', function() {
       fire('test-event', false, element);
       assert.isTrue(element.calledOnce);
     });
+
+    it('ignores changes to the same node', function() {
+      element.eventsTarget = element;
+      const spy = sinon.spy(element, '_eventsTargetChanged');
+      element.eventsTarget = element;
+      assert.isFalse(spy.called);
+    });
   });
 
   describe('Native WC', function() {
@@ -84,6 +93,35 @@ describe('EventsTargetMixin', function() {
       element.parentNode.removeChild(element);
       fire('test-event', true);
       assert.isFalse(element.called);
+    });
+  });
+
+  describe('non-element instance', () => {
+    let instance;
+    beforeEach(() => {
+      instance = new EventableObject();
+    });
+
+    it('sets default old events target', () => {
+      assert.ok(instance._oldEventsTarget);
+    });
+
+    it('calls _detachListeners when manually calling detached', () => {
+      const spy = sinon.spy(instance, '_detachListeners');
+      instance.disconnectedCallback();
+      assert.isTrue(spy.called);
+    });
+
+    it('calls _detachListeners when changing the target', () => {
+      const spy = sinon.spy(instance, '_detachListeners');
+      instance.eventsTarget = document.body;;
+      assert.isTrue(spy.called);
+    });
+
+    it('calls _attachListeners when changing the target', () => {
+      const spy = sinon.spy(instance, '_attachListeners');
+      instance.eventsTarget = document.body;;
+      assert.isTrue(spy.called);
     });
   });
 });

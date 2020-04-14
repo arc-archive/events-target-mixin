@@ -2,7 +2,7 @@
   "description": "Mixin that support event targets retargeting so the element listens on a set node instead of default one",
   "keywords": [
     "web-components",
-    "polymer"
+    "events"
   ],
   "repository": {
     "type": "git",
@@ -12,20 +12,26 @@
   "version": "3.0.0",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@advanced-rest-client/testing-karma-sl": "^1.0.2",
-    "@open-wc/testing": "^0.11.1",
-    "@open-wc/testing-karma": "^2.0.16",
+    "@advanced-rest-client/eslint-config": "^1.1.5",
+    "@advanced-rest-client/prettier-config": "^0.1.0",
+    "@advanced-rest-client/testing-karma-sl": "^1.2.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@open-wc/testing": "^2.5.11",
+    "@open-wc/testing-karma": "^3.3.12",
     "@polymer/gen-typescript-declarations": "^1.6.1",
-    "lit-element": "^2.2.0"
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.0",
+    "lit-element": "^2.3.1",
+    "sinon": "^9.0.1"
   },
-  "main": "events-target-mixin.js",
+  "main": "index.js",
+  "module": "index.js",
   "author": "The Advanced REST client authors <arc@mulesoft.com>",
   "scripts": {
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:legacy": "karma start --legacy --coverage",
-    "test:legacy:watch": "karma start --legacy --auto-watch=true --single-run=false",
-    "test:sl": "karma start karma.sl.config.js --legacy --coverage",
+    "test:sl": "karma start karma.sl.config.js --coverage",
     "update-types": "gen-typescript-declarations --deleteExisting --outDir ."
   },
   "bugs": {
