@@ -78,3 +78,24 @@
  [bd87333](https://github.com/advanced-rest-client/events-target-mixin/commit/bd873337f93134f45190872be4f23ad98460e282) by Pawel Psztyc
 
 
+<a name="3.1.1"></a>
+## [3.1.1](https://github.com/advanced-rest-client/events-target-mixin/compare/3.0.0...3.1.1) (2020-04-14)
+
+### Build
+
+* bumping version [79d2519](https://github.com/advanced-rest-client/events-target-mixin/commit/79d251984c2793a0b07a538fc1d96db157d6f5be) by Pawel
+* bumping version [cae961e](https://github.com/advanced-rest-client/events-target-mixin/commit/cae961e8eb49234dffa4f3506efba0c82d21473e) by Pawel
+
+
+### Update
+
+* updating types [fdc4ac7](https://github.com/advanced-rest-client/events-target-mixin/commit/fdc4ac70ee38215fc3f3b9ec425e767b53ebbab8) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [f35483a](https://github.com/advanced-rest-client/events-target-mixin/commit/f35483a6133bf7b1234a86625157961f64549583) by Ci agent
+* upgrading project to new structure and to support Object [d92d8a7](https://github.com/advanced-rest-client/events-target-mixin/commit/d92d8a7a3a0951bd573c32af0fdb49e5b71279d9) by Pawel
+
+
+### Bug Fixes
+
+* fixing npm audit errors [01311fb](https://github.com/advanced-rest-client/events-target-mixin/commit/01311fb984d8dd4d2f4bf72edaf2647959e91de5) by Pawel Psztyc
+
+
