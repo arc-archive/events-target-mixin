@@ -5,7 +5,7 @@
  *   https://github.com/Polymer/tools/tree/master/packages/gen-typescript-declarations
  *
  * To modify these typings, edit the source file(s):
- *   events-target-mixin.js
+ *   index.js
  */
 
 
