@@ -11,4 +11,4 @@
 
 // tslint:disable:variable-name Describing an API that's defined elsewhere.
 
-export {EventsTargetMixin} from './src/EventsTargetMixin.js';
+export {EventsTargetMixin} from './src/EventsTargetMixin';

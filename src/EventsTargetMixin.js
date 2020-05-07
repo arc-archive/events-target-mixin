@@ -11,9 +11,103 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations under
 the License.
 */
+import { dedupeMixin } from '@open-wc/dedupe-mixin';
+
+/* eslint-disable no-unused-vars */
+/* eslint-disable class-methods-use-this */
+
 /**
- * `ArcBehaviors.EventsTargetBehavior` is a behavior mixin that allows setting
- * up event listeners on a default or set node.
+ * @param {typeof HTMLElement} base
+ */
+const mxFunction = base => {
+  class ButtonStateMixinImpl extends base {
+    /**
+     * @return {HTMLElement|Window} Currently registered events target,
+     */
+    get eventsTarget() {
+      return this._eventsTarget;
+    }
+
+    /**
+     * By default the element listens on the `window` object. If this value is set,
+     * then all events listeners will be attached to this object instead of `window`.
+     * @param {HTMLElement|Window} value Events handlers target.
+     */
+    set eventsTarget(value) {
+      const old = this._eventsTarget;
+      if (old === value) {
+        return;
+      }
+      this._eventsTarget = value;
+      this._eventsTargetChanged(value);
+      // @ts-ignore
+      if (this.requestUpdate) {
+        // @ts-ignore
+        this.requestUpdate('eventsTarget', old);
+      }
+    }
+
+    constructor() {
+      super();
+      // for types.
+      this._eventsTarget = null;
+      this._oldEventsTarget = null;
+    }
+
+    connectedCallback() {
+      // @ts-ignore
+      if (super.connectedCallback) {
+        // @ts-ignore
+        super.connectedCallback();
+      }
+      this._eventsTargetChanged(this.eventsTarget);
+    }
+
+    disconnectedCallback() {
+      // @ts-ignore
+      if (super.disconnectedCallback) {
+        // @ts-ignore
+        super.disconnectedCallback();
+      }
+      if (this._oldEventsTarget) {
+        this._detachListeners(this._oldEventsTarget);
+      }
+    }
+
+    /**
+     * Removes old handlers (if any) and attaches listeners on new event
+     * event target.
+     *
+     * @param {HTMLElement|Window=} eventsTarget Event target to set handlers on. If not set it
+     * will set handlers on the `window` object.
+     */
+    _eventsTargetChanged(eventsTarget) {
+      if (this._oldEventsTarget) {
+        this._detachListeners(this._oldEventsTarget);
+      }
+      this._oldEventsTarget = eventsTarget || window;
+      this._attachListeners(this._oldEventsTarget);
+    }
+
+    /**
+     * To be implement by the element to set event listeners from the target.
+     * @abstract
+     * @param {HTMLElement|Window} node A node to which attach event listeners to
+     */
+    _attachListeners(node) {}
+
+    /**
+     * To be implement by the element to remove event listeners from the target.
+     * @abstract
+     * @param {HTMLElement|Window} node A node to which remove event listeners to
+     */
+    _detachListeners(node) {}
+  }
+  return ButtonStateMixinImpl;
+};
+
+/**
+ * `EventsTargetMixin` is a mixin that allows to set event listeners on a default or set node.
  *
  * By default the element listens on the `window` element for events. By setting
  * `eventsTarget` property on this element it removes all previously set
@@ -40,73 +134,6 @@ the License.
  * The mixin handles connectedCallback / disconnectedCallback and calls the
  * functions with required parameters.
  *
- * @mixinFunction
- * @param {Class} base
- * @return {Class}
+ * @mixin
  */
-export const EventsTargetMixin = (base) => class extends base {
-  /**
-   * @return {Node} Currently registered events target,
-   */
-  get eventsTarget() {
-    return this._eventsTarget;
-  }
-
-  /**
-   * By default the element listens on the `window` object. If this value is set,
-   * then all events listeners will be attached to this object instead of `window`.
-   * @param {Node} value Events handlers target.
-   */
-  set eventsTarget(value) {
-    const old = this._eventsTarget;
-    if (old === value) {
-      return;
-    }
-    this._eventsTarget = value;
-    this._eventsTargetChanged(value);
-    if (this.requestUpdate) {
-      this.requestUpdate('eventsTarget', old);
-    }
-  }
-
-  constructor() {
-    super();
-    // for types.
-    this._eventsTarget = null;
-    this._oldEventsTarget = null;
-  }
-
-  connectedCallback() {
-    if (super.connectedCallback) {
-      super.connectedCallback();
-    }
-    this._eventsTargetChanged(this.eventsTarget);
-  }
-
-  disconnectedCallback() {
-    if (super.disconnectedCallback) {
-      super.disconnectedCallback();
-    }
-    if (this._oldEventsTarget) {
-      this._detachListeners(this._oldEventsTarget);
-    }
-  }
-  /**
-   * Removes old handlers (if any) and attaches listeners on new event
-   * event target.
-   *
-   * @param {?Node} eventsTarget Event target to set handlers on. If not set it
-   * will set handlers on the `window` object.
-   */
-  _eventsTargetChanged(eventsTarget) {
-    if (this._oldEventsTarget) {
-      this._detachListeners(this._oldEventsTarget);
-    }
-    this._oldEventsTarget = eventsTarget || window;
-    this._attachListeners(this._oldEventsTarget);
-  }
-  // To be implement by the element to set event listeners on the target
-  _attachListeners() {}
-  // To be implement by the element to remove event listeners from the target
-  _detachListeners() {}
-};
+export const EventsTargetMixin = dedupeMixin(mxFunction);

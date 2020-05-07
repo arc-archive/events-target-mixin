@@ -1,6 +1,6 @@
 [![Published on NPM](https://img.shields.io/npm/v/@advanced-rest-client/events-target-mixin.svg)](https://www.npmjs.com/package/@advanced-rest-client/events-target-mixin)
 
-[![Build Status](https://travis-ci.org/advanced-rest-client/events-target-mixin.svg?branch=stage)](https://travis-ci.org/advanced-rest-client/events-target-mixin)
+[![Build Status](https://travis-ci.com/advanced-rest-client/events-target-mixin.svg)](https://travis-ci.com/advanced-rest-client/events-target-mixin)
 
 A Mixin that support event targets retargeting so the element listens on a set node instead of the default `window` object.
 
@@ -8,7 +8,7 @@ A Mixin that support event targets retargeting so the element listens on a set n
 
 ### Installation
 ```
-npm install --save @advanced-rest-client/events-target-mixin
+npm install @advanced-rest-client/events-target-mixin --save
 ```
 
 ### In a web component
