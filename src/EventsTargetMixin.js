@@ -20,7 +20,7 @@ import { dedupeMixin } from '@open-wc/dedupe-mixin';
  * @param {typeof HTMLElement} base
  */
 const mxFunction = base => {
-  class ButtonStateMixinImpl extends base {
+  class EventsTargetMixinImpl extends base {
     /**
      * @return {HTMLElement|Window} Currently registered events target,
      */
@@ -103,7 +103,7 @@ const mxFunction = base => {
      */
     _detachListeners(node) {}
   }
-  return ButtonStateMixinImpl;
+  return EventsTargetMixinImpl;
 };
 
 /**
