@@ -22,7 +22,7 @@ import { dedupeMixin } from '@open-wc/dedupe-mixin';
 const mxFunction = base => {
   class EventsTargetMixinImpl extends base {
     /**
-     * @return {HTMLElement|Window} Currently registered events target,
+     * @return {EventTarget} Currently registered events target,
      */
     get eventsTarget() {
       return this._eventsTarget;
@@ -31,7 +31,7 @@ const mxFunction = base => {
     /**
      * By default the element listens on the `window` object. If this value is set,
      * then all events listeners will be attached to this object instead of `window`.
-     * @param {HTMLElement|Window} value Events handlers target.
+     * @param {EventTarget} value Events handlers target.
      */
     set eventsTarget(value) {
       const old = this._eventsTarget;
@@ -78,7 +78,7 @@ const mxFunction = base => {
      * Removes old handlers (if any) and attaches listeners on new event
      * event target.
      *
-     * @param {HTMLElement|Window=} eventsTarget Event target to set handlers on. If not set it
+     * @param {EventTarget=} eventsTarget Event target to set handlers on. If not set it
      * will set handlers on the `window` object.
      */
     _eventsTargetChanged(eventsTarget) {
@@ -92,14 +92,14 @@ const mxFunction = base => {
     /**
      * To be implement by the element to set event listeners from the target.
      * @abstract
-     * @param {HTMLElement|Window} node A node to which attach event listeners to
+     * @param {EventTarget} node A node to which attach event listeners to
      */
     _attachListeners(node) {}
 
     /**
      * To be implement by the element to remove event listeners from the target.
      * @abstract
-     * @param {HTMLElement|Window} node A node to which remove event listeners to
+     * @param {EventTarget} node A node to which remove event listeners to
      */
     _detachListeners(node) {}
   }
