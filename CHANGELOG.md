@@ -134,3 +134,23 @@
 * [ci skip] automated merge master->stage. syncing main branches [f35483a](https://github.com/advanced-rest-client/events-target-mixin/commit/f35483a6133bf7b1234a86625157961f64549583) by Ci agent
 
 
+<a name="3.2.2"></a>
+## [3.2.2](https://github.com/advanced-rest-client/events-target-mixin/compare/3.1.1...3.2.2) (2020-06-05)
+
+### Build
+
+* bumping version [4f3f940](https://github.com/advanced-rest-client/events-target-mixin/commit/4f3f940a99d59be02201e772cd5005e8b57b1b24) by Pawel
+* bumping version [012c47a](https://github.com/advanced-rest-client/events-target-mixin/commit/012c47a5816dc784956bbe0c3296ae3efd86282a) by Pawel
+* bumping version [9b85312](https://github.com/advanced-rest-client/events-target-mixin/commit/9b85312f198e34aa35b7c43027b09b9f28185a7e) by Pawel
+
+
+### Update
+
+* updating dependencies [21af74b](https://github.com/advanced-rest-client/events-target-mixin/commit/21af74b0a0b8574780e2c378a266c0d0e98deb3a) by Pawel
+* updating inner class name [1a4806e](https://github.com/advanced-rest-client/events-target-mixin/commit/1a4806ef5c565b54e5d0bf9aac4abcc89ed19a41) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [6a23f70](https://github.com/advanced-rest-client/events-target-mixin/commit/6a23f7009543ec54f015bcab12be2ae28632b9a8) by Ci agent
+* [ci skip] automated merge master->stage. syncing main branches [8be6365](https://github.com/advanced-rest-client/events-target-mixin/commit/8be63659ea5771578ab2b922e6ec2b60a80ac130) by Ci agent
+* upgrading to open-wc standards and new manual types [934a2ee](https://github.com/advanced-rest-client/events-target-mixin/commit/934a2ee01f556b7229de8a11d47c526377612be0) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [0abe019](https://github.com/advanced-rest-client/events-target-mixin/commit/0abe0194e80439a82748c3e15d5ccfbca5428df0) by Ci agent
+
+
