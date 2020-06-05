@@ -99,3 +99,38 @@
 * fixing npm audit errors [01311fb](https://github.com/advanced-rest-client/events-target-mixin/commit/01311fb984d8dd4d2f4bf72edaf2647959e91de5) by Pawel Psztyc
 
 
+<a name="3.2.0"></a>
+## [3.2.0](https://github.com/advanced-rest-client/events-target-mixin/compare/3.1.0...3.2.0) (2020-05-07)
+
+### Build
+
+* bumping version [9b85312](https://github.com/advanced-rest-client/events-target-mixin/commit/9b85312f198e34aa35b7c43027b09b9f28185a7e) by Pawel
+* bumping version [79d2519](https://github.com/advanced-rest-client/events-target-mixin/commit/79d251984c2793a0b07a538fc1d96db157d6f5be) by Pawel
+
+
+### Update
+
+* upgrading to open-wc standards and new manual types [934a2ee](https://github.com/advanced-rest-client/events-target-mixin/commit/934a2ee01f556b7229de8a11d47c526377612be0) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [0abe019](https://github.com/advanced-rest-client/events-target-mixin/commit/0abe0194e80439a82748c3e15d5ccfbca5428df0) by Ci agent
+* updating types [fdc4ac7](https://github.com/advanced-rest-client/events-target-mixin/commit/fdc4ac70ee38215fc3f3b9ec425e767b53ebbab8) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [f35483a](https://github.com/advanced-rest-client/events-target-mixin/commit/f35483a6133bf7b1234a86625157961f64549583) by Ci agent
+
+
+<a name="3.2.0"></a>
+## [3.2.0](https://github.com/advanced-rest-client/events-target-mixin/compare/3.1.0...3.2.0) (2020-05-07)
+
+### Build
+
+* bumping version [9b85312](https://github.com/advanced-rest-client/events-target-mixin/commit/9b85312f198e34aa35b7c43027b09b9f28185a7e) by Pawel
+* bumping version [79d2519](https://github.com/advanced-rest-client/events-target-mixin/commit/79d251984c2793a0b07a538fc1d96db157d6f5be) by Pawel
+
+
+### Update
+
+* [ci skip] automated merge master->stage. syncing main branches [8be6365](https://github.com/advanced-rest-client/events-target-mixin/commit/8be63659ea5771578ab2b922e6ec2b60a80ac130) by Ci agent
+* upgrading to open-wc standards and new manual types [934a2ee](https://github.com/advanced-rest-client/events-target-mixin/commit/934a2ee01f556b7229de8a11d47c526377612be0) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [0abe019](https://github.com/advanced-rest-client/events-target-mixin/commit/0abe0194e80439a82748c3e15d5ccfbca5428df0) by Ci agent
+* updating types [fdc4ac7](https://github.com/advanced-rest-client/events-target-mixin/commit/fdc4ac70ee38215fc3f3b9ec425e767b53ebbab8) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [f35483a](https://github.com/advanced-rest-client/events-target-mixin/commit/f35483a6133bf7b1234a86625157961f64549583) by Ci agent
+
+
