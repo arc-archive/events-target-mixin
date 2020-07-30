@@ -154,3 +154,22 @@
 * [ci skip] automated merge master->stage. syncing main branches [0abe019](https://github.com/advanced-rest-client/events-target-mixin/commit/0abe0194e80439a82748c3e15d5ccfbca5428df0) by Ci agent
 
 
+<a name="3.2.3"></a>
+## [3.2.3](https://github.com/advanced-rest-client/events-target-mixin/compare/3.2.0...3.2.3) (2020-07-30)
+
+### Build
+
+* bumping version [4f3f940](https://github.com/advanced-rest-client/events-target-mixin/commit/4f3f940a99d59be02201e772cd5005e8b57b1b24) by Pawel
+* bumping version [012c47a](https://github.com/advanced-rest-client/events-target-mixin/commit/012c47a5816dc784956bbe0c3296ae3efd86282a) by Pawel
+
+
+### Update
+
+* upgrading deps and adding EventsTargetMixinConstructor export [7b4dc2a](https://github.com/advanced-rest-client/events-target-mixin/commit/7b4dc2a252fa3dce9a754cf0efa91cb12eb8eeef) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [81fe4f4](https://github.com/advanced-rest-client/events-target-mixin/commit/81fe4f40685df2b032c0a0c1a7f0bd9b7d1cccd2) by Ci agent
+* updating dependencies [21af74b](https://github.com/advanced-rest-client/events-target-mixin/commit/21af74b0a0b8574780e2c378a266c0d0e98deb3a) by Pawel
+* updating inner class name [1a4806e](https://github.com/advanced-rest-client/events-target-mixin/commit/1a4806ef5c565b54e5d0bf9aac4abcc89ed19a41) by Pawel
+* [ci skip] automated merge master->stage. syncing main branches [6a23f70](https://github.com/advanced-rest-client/events-target-mixin/commit/6a23f7009543ec54f015bcab12be2ae28632b9a8) by Ci agent
+* [ci skip] automated merge master->stage. syncing main branches [8be6365](https://github.com/advanced-rest-client/events-target-mixin/commit/8be63659ea5771578ab2b922e6ec2b60a80ac130) by Ci agent
+
+
