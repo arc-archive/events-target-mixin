@@ -1,7 +1,7 @@
 {
   "name": "@advanced-rest-client/events-target-mixin",
   "description": "Mixin that support event targets retargeting so the element listens on a set node instead of default one",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "license": "Apache-2.0",
   "main": "index.js",
   "module": "index.js",
@@ -25,23 +25,23 @@
     "email": "arc@mulesoft.com"
   },
   "dependencies": {
-    "@open-wc/dedupe-mixin": "^1.2.17"
+    "@open-wc/dedupe-mixin": "^1.2.18"
   },
   "devDependencies": {
-    "@advanced-rest-client/testing-karma-sl": "^1.2.0",
+    "@advanced-rest-client/testing-karma-sl": "^1.4.0",
     "@open-wc/eslint-config": "^2.0.0",
-    "@open-wc/testing": "^2.5.17",
-    "@open-wc/testing-karma": "^3.4.2",
+    "@open-wc/testing": "^2.5.19",
+    "@open-wc/testing-karma": "^4.0.1",
     "deepmerge": "^4.2.2",
-    "eslint": "^6.1.0",
+    "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
     "husky": "^4.2.3",
-    "lint-staged": "^10.2.9",
+    "lint-staged": "^10.2.11",
     "lit-element": "^2.3.1",
     "lit-html": "^1.2.1",
     "prettier": "^2.0.4",
     "sinon": "^9.0.1",
-    "typescript": "^3.9.5",
+    "typescript": "^3.9.7",
     "typescript-lit-html-plugin": "^0.9.0"
   },
   "scripts": {
@@ -63,7 +63,7 @@
   },
   "prettier": {
     "singleQuote": true,
-    "arrowParens": "avoid"
+    "arrowParens": "always"
   },
   "husky": {
     "hooks": {
