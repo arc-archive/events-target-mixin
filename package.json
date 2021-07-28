@@ -1,7 +1,7 @@
 {
   "name": "@advanced-rest-client/events-target-mixin",
   "description": "Mixin that support event targets retargeting so the element listens on a set node instead of default one",
-  "version": "3.2.3",
+  "version": "3.2.4",
   "license": "Apache-2.0",
   "main": "index.js",
   "module": "index.js",
@@ -25,23 +25,23 @@
     "email": "arc@mulesoft.com"
   },
   "dependencies": {
-    "@open-wc/dedupe-mixin": "^1.2.18"
+    "@open-wc/dedupe-mixin": "^1.3.0"
   },
   "devDependencies": {
-    "@advanced-rest-client/testing-karma-sl": "^1.4.0",
-    "@open-wc/eslint-config": "^2.0.0",
-    "@open-wc/testing": "^2.5.19",
-    "@open-wc/testing-karma": "^4.0.1",
+    "@open-wc/eslint-config": "^2.1.0",
+    "@open-wc/testing": "^2.5.33",
+    "@web/test-runner": "^0.13.15",
+    "@web/test-runner-playwright": "^0.8.6",
     "deepmerge": "^4.2.2",
-    "eslint": "^7.5.0",
-    "eslint-config-prettier": "^6.11.0",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.2.11",
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.2.1",
-    "prettier": "^2.0.4",
-    "sinon": "^9.0.1",
-    "typescript": "^3.9.7",
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^6.15.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4",
+    "lit-element": "^2.5.1",
+    "lit-html": "^1.4.1",
+    "prettier": "^2.3.2",
+    "sinon": "^9.2.4",
+    "typescript": "^3.9.10",
     "typescript-lit-html-plugin": "^0.9.0"
   },
   "scripts": {
@@ -51,9 +51,8 @@
     "format:prettier": "prettier \"**/*.js\" --write --ignore-path .gitignore",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "format": "npm run format:eslint && npm run format:prettier",
-    "test": "karma start --coverage",
-    "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:sl": "karma start karma.sl.config.js --coverage"
+    "test": "web-test-runner test/**/*.test.js --coverage --node-resolve --playwright --browsers chromium firefox webkit",
+    "test:watch": "web-test-runner test/**/*.test.js --node-resolve --watch --playwright --browsers chromium"
   },
   "eslintConfig": {
     "extends": [
@@ -73,8 +72,7 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }
