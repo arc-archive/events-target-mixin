@@ -97,31 +97,38 @@ describe('EventsTargetMixin', () => {
   });
 
   describe('non-element instance', () => {
-    let instance;
-    beforeEach(() => {
-      instance = new EventableObject();
-    });
-
     it('sets default old events target', () => {
+      const instance = new EventableObject();
+      // @ts-ignore
       assert.ok(instance._oldEventsTarget);
     });
 
     it('calls _detachListeners when manually calling detached', () => {
+      const instance = new EventableObject();
       const spy = sinon.spy(instance, '_detachListeners');
+      // @ts-ignore
       instance.disconnectedCallback();
       assert.isTrue(spy.called);
     });
 
     it('calls _detachListeners when changing the target', () => {
+      const instance = new EventableObject();
       const spy = sinon.spy(instance, '_detachListeners');
       instance.eventsTarget = document.body;
       assert.isTrue(spy.called);
     });
 
     it('calls _attachListeners when changing the target', () => {
+      const instance = new EventableObject();
       const spy = sinon.spy(instance, '_attachListeners');
       instance.eventsTarget = document.body;
       assert.isTrue(spy.called);
+    });
+
+    it('passes constructor arguments', () => {
+      const instance = new EventableObject('a', 'b');
+      assert.equal(instance.value1, 'a');
+      assert.equal(instance.value2, 'b');
     });
   });
 });

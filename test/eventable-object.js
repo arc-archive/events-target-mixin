@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 /**
 @license
 Copyright 2017 The Advanced REST client authors <arc@mulesoft.com>
@@ -16,9 +17,24 @@ Example implementation.
 */
 import { EventsTargetMixin } from '../index.js';
 
-export class EventableObject extends EventsTargetMixin(Object) {
-  constructor() {
-    super();
+class TestClass {
+  /** 
+   * @param {any} value1 
+   * @param {any} value2
+   */
+  constructor(value1, value2) {
+    this.value1 = value1;
+    this.value2 = value2;
+  }
+}
+
+export class EventableObject extends EventsTargetMixin(TestClass) {
+  /** 
+   * @param {any} value1 
+   * @param {any} value2
+   */
+  constructor(value1, value2) {
+    super(value1, value2);
     this._eventsTargetChanged();
   }
 }

@@ -47,8 +47,12 @@ const mxFunction = base => {
       }
     }
 
-    constructor() {
-      super();
+    /**
+     * @param  {...any} args 
+     */
+    constructor(...args) {
+      // @ts-ignore
+      super(...args);
       // for types.
       this._eventsTarget = null;
       this._oldEventsTarget = null;
