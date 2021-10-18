@@ -1,7 +1,7 @@
 {
   "name": "@advanced-rest-client/events-target-mixin",
   "description": "Mixin that support event targets retargeting so the element listens on a set node instead of default one",
-  "version": "3.2.5",
+  "version": "3.2.6",
   "license": "Apache-2.0",
   "main": "index.js",
   "module": "index.js",
