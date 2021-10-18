@@ -1,13 +1,16 @@
-[![Published on NPM](https://img.shields.io/npm/v/@advanced-rest-client/events-target-mixin.svg)](https://www.npmjs.com/package/@advanced-rest-client/events-target-mixin)
+# DEPRECATED
 
-[![Build Status](https://travis-ci.com/advanced-rest-client/events-target-mixin.svg)](https://travis-ci.com/advanced-rest-client/events-target-mixin)
+Use the `@anypoint-web-components/awc` module instead.
+
+-----
 
 A Mixin that support event targets retargeting so the element listens on a set node instead of the default `window` object.
 
 ## Usage
 
 ### Installation
-```
+
+```sh
 npm install @advanced-rest-client/events-target-mixin --save
 ```
 

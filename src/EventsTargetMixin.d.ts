@@ -3,6 +3,9 @@ interface EventsTargetMixinConstructor {
   new(...args: any[]): EventsTargetMixin;
 }
 
+/**
+ * @deprecated Use the `@anypoint-web-components/awc` module instead.
+ */
 interface EventsTargetMixin {
   /**
    * By default the element listens on the `window` object. If this value is set,
